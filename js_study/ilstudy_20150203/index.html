@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1">
+  <title>【ilStudy】JS勉強会　～ jQueryを使ったサイトを作ろう ～</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="ly-header" id="pageTop">
+    <div class="ly-headerInner">
+      <h1>ヘッダーです。</h1>
+    </div>
+  </header>
+  <div class="ly-mainImg">
+    メイン画像
+  </div>
+  <main class="ly-main clearfix">
+    <div class="ly-mainContents">
+      <h2>メインコンテンツ</h2>
+    </div>
+
+    <div class="ly-mainSideContents">
+      <h2>サイドコンテンツ</h2>
+      <div class="accordion-outer">
+        <h3 class="accordion-header jsc-accordion">開閉メニュー<span>+</span></h3>
+        <ul class="accordion-inner" style="display:none;">
+          <li><a href="#">コンテンツ１</a></li>
+          <li><a href="#">コンテンツ２</a></li>
+          <li><a href="#">コンテンツ３</a></li>
+          <li><a href="#">コンテンツ４</a></li>
+          <li><a href="#">コンテンツ５</a></li>
+        </ul>
+        <h3 class="accordion-header jsc-accordion">開閉メニュー２<span>+</span></h3>
+        <ul class="accordion-inner" style="display:none;">
+          <li><a href="#">コンテンツ１</a></li>
+          <li><a href="#">コンテンツ２</a></li>
+          <li><a href="#">コンテンツ３</a></li>
+          <li><a href="#">コンテンツ４</a></li>
+          <li><a href="#">コンテンツ５</a></li>
+        </ul>
+        <h3 class="accordion-header jsc-accordion">開閉メニュー３<span>+</span></h3>
+        <ul class="accordion-inner" style="display:none;">
+          <li><a href="#">コンテンツ１</a></li>
+          <li><a href="#">コンテンツ２</a></li>
+          <li><a href="#">コンテンツ３</a></li>
+          <li><a href="#">コンテンツ４</a></li>
+          <li><a href="#">コンテンツ５</a></li>
+        </ul>
+      </div>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="ly-footer">
+    <div class="ly-footerInner">
+      フッター is here.
+    </div>
+  </footer>
+
+  <p id="jsi-btn-goTop" class="btn-goTop" style="display: none;"><a href="#pageTop" class="jsc-scrollTop">☝('ω'☝ )三☝('ω')☝三( ☝'ω')☝ トップへ戻る</a></p>
+  <script src="js/lib/jquery-1.11.1.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
