@@ -1,0 +1,21 @@
+body {
+  position: relative; }
+
+#modalOverlay {
+  background: gray;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%; }
+
+.modal-outer {
+  background: #fff;
+  border: 1px solid #333;
+  width: 80%;
+  padding: 20px 5%;
+  position: absolute; }
+
+/*# sourceMappingURL=viewmodal.css.map */

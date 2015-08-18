@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>モーダルをprototypeパターンで実装してみるテスト</title>
+  <link rel="stylesheet" type="text/css" media="all" href="css/viewmodal_proto.css" />
+</head>
+<body>
+  <h1>モーダルをprototypeパターンで実装してみるテスト</h1>
+  <p class="date">2015/08</p>
+  <ul>
+    <li><a href="#modal1" class="jsc-modal-trigger1">モーダル１</a></li>
+    <li><a href="#modal2" class="jsc-modal-trigger2">モーダル２</a></li>
+  </ul>
+
+  <!-- モーダル1 -->
+  <div id="modal1" class="modal-outer" style="display: none;">
+    <div class="modal-content">
+      <h2 class="modal-confirm-title">モーダル１</h2>
+      <p>モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。</p>
+      <ul class="modal-btn-area">
+        <li><a href="javascript:void(0);" class="btn-modal-close jsc-modal-close">閉じる</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- モーダル2 -->
+  <div id="modal2" class="modal-outer" style="display: none;">
+    <div class="modal-content">
+      <h2 class="modal-confirm-title">モーダル２</h2>
+      <p>モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。</p>
+      <ul class="modal-btn-area">
+        <li><a href="javascript:void(0);" class="btn-modal-close jsc-modal-close">閉じる</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/viewmodal_proto.js"></script>
+</body>
+</html>

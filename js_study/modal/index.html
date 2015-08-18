@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>viewModal(data属性使うやつ)</title>
+  <link rel="stylesheet" type="text/css" media="all" href="css/viewmodal.css" />
+</head>
+<body>
+  <h1>viewModal(data属性使うやつ)</h1>
+  <p class="date">2014-2015ぐらい</p>
+  <ul>
+    <li><a href="javascript:void(0);" class="jsc-modal" data-target="modal1">モーダル１</a></li>
+    <li><a href="javascript:void(0);" class="jsc-modal" data-target="modal2">モーダル２</a></li>
+  </ul>
+
+  <!-- モーダル1 -->
+  <div id="modal1" class="modal-outer" style="display: none;">
+    <div class="modal-content">
+      <h2 class="modal-confirm-title">モーダル１</h2>
+      <p>モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。</p>
+      <ul class="modal-btn-area">
+        <li><a href="javascript:void(0);" class="btn-modal-close jsc-modal-close">閉じる</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- モーダル2 -->
+  <div id="modal2" class="modal-outer" style="display: none;">
+    <div class="modal-content">
+      <h2 class="modal-confirm-title">モーダル２</h2>
+      <p>モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。</p>
+      <ul class="modal-btn-area">
+        <li><a href="javascript:void(0);" class="btn-modal-close jsc-modal-close">閉じる</a></li>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/viewmodal.js"></script>
+  <script>
+    $('.jsc-modal').viewModal();
+  </script>
+</body>
+</html>
