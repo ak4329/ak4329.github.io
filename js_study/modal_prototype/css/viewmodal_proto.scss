@@ -4,6 +4,40 @@ body {
   position: relative;
 }
 
+.overview {}
+.small{
+  color: #aaa;
+  font-size: 11px;
+}
+
+.trigger-list {
+  margin-top: 40px;
+}
+
+.script-info{
+  background: #eee;
+  border: 1px solid #666;
+  border-radius: 5px;
+  margin-top: 60px;
+  padding: 20px;
+  h2 {
+    font-size: 20px;
+    margin: 0;
+  }
+  ul {
+    margin: 5px 0;
+    padding-left: 0;
+  }
+  li {
+    list-style-type: none;
+  }
+}
+.script-info-inner{
+  & + & {
+    margin-top: 20px;
+  }
+}
+
 #modalOverlay {
   background: rgb(128, 128, 128);
   background: rgba(0, 0, 0, 0.5);

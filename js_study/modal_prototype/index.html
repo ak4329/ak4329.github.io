@@ -3,15 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <title>モーダルをprototypeパターンで実装してみるテスト</title>
+  <link rel="stylesheet" type="text/css" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="../css/style.css" />
   <link rel="stylesheet" type="text/css" media="all" href="css/viewmodal_proto.css" />
 </head>
 <body>
-  <h1>モーダルをprototypeパターンで実装してみるテスト</h1>
-  <p class="date">2015/08</p>
-  <ul>
-    <li><a href="#modal1" class="jsc-modal-trigger1">モーダル１</a></li>
-    <li><a href="#modal2" class="jsc-modal-trigger2">モーダル２</a></li>
-  </ul>
+  <div class="wrapper">
+    <h1>モーダルをprototypeパターンで実装してみるテスト</h1>
+    <p class="overview">
+      <a href="../modal/">data属性を使ったモーダル</a>をdata属性なしでprototypeパターンにしてみたもの。
+    </p>
+    <p class="small">別途ajax通信もやりたかったけど<a href="http://kai-you.net/article/2843" target="_blank">いい感じのAPI</a>が提供終了していたとです</p>
+    <p class="date">作成日：2015/08</p>
+
+    <ul class="trigger-list">
+      <li><a href="#modal1" class="jsc-modal-trigger1">モーダル１</a></li>
+      <li><a href="#modal2" class="jsc-modal-trigger2">モーダル２</a></li>
+    </ul>
+
+    <div class="script-info">
+      <div class="script-info-inner">
+        <h2>説明</h2>
+        <p>
+          var modal1 = new ModalObj(); のような形でインスタンスを作って<br>
+          modal1.init('.triggerCls'); のようにする<br>
+          ※引数にはトリガーとなるリンクのclassを入れる（例：.jsc-modal-trigger1）<br>
+          ※対応するモーダルはアンカーで指定（例：#modal1）
+        </p>
+      </div>
+      <div class="script-info-inner">
+        <h2>既知の問題点</h2>
+        <ul>
+          <li>
+            【謎1】モーダルが表示されていないときに、画面のどこをクリックしてもこのメソッドが発火してしまう<br>
+            （リンクが遷移しないなどの弊害がある）</li>
+          <li>
+            【謎2】オーバーレイ（背景）をクリックした時にメソッドが複数回発火している？<br>
+            ※console.logすると複数行表示される
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <!-- モーダル1 -->
   <div id="modal1" class="modal-outer" style="display: none;">
@@ -29,7 +62,7 @@
       <h2 class="modal-confirm-title">モーダル２</h2>
       <p>モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。</p>
       <ul class="modal-btn-area">
-        <li><a href="javascript:void(0);" class="btn-modal-close jsc-modal-close">close</a></li>
+        <li><a href="javascript:void(0);" class="btn-modal-close jsc-modal-close">close!!!</a></li>
       </ul>
     </div>
   </div>

@@ -1,10 +1,39 @@
 @charset "utf-8";
 
 body {
-  position: relative;
+  color: #333;
+}
+
+a:link,
+a:visited,
+a:hover {
+  color: #44afe5;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+p {
+  margin: 0;
 }
 
 .wrapper {
   margin: 0 auto;
   width: 90%;
+}
+
+.study-place {
+  border-bottom: 1px dashed #ccc;
+  margin-bottom: 0;
+}
+.study-list {
+  &:first-child dt {
+    margin-top: 0;
+  }
+  dt {
+    margin-top: 10px;
+  }
+  dd {
+    margin-left: 1em;
+  }
 }

@@ -3,15 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>viewModal(data属性使うやつ)</title>
+  <link rel="stylesheet" type="text/css" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="../css/style.css" />
   <link rel="stylesheet" type="text/css" media="all" href="css/viewmodal.css" />
 </head>
 <body>
-  <h1>viewModal(data属性使うやつ)</h1>
-  <p class="date">2014-2015ぐらい</p>
-  <ul>
-    <li><a href="javascript:void(0);" class="jsc-modal" data-target="modal1">モーダル１</a></li>
-    <li><a href="javascript:void(0);" class="jsc-modal" data-target="modal2">モーダル２</a></li>
-  </ul>
+  <div class="wrapper">
+    <h1>viewModal(data属性使うやつ)</h1>
+    <p class="overview">以前REVとかで作ったものをプラグインっぽく改変</p>
+    <p class="date">作成日：2014-2015/08</p>
+
+    <ul class="trigger-list">
+      <li><a href="javascript:void(0);" class="jsc-modal" data-target="modal1">モーダル１</a></li>
+      <li><a href="javascript:void(0);" class="jsc-modal" data-target="modal2">モーダル２</a></li>
+    </ul>
+
+    <div class="script-info">
+      <div class="script-info-inner">
+        <h2>説明</h2>
+        <p>
+          $('.triggerCls').viewModal();<br>
+          ※トリガーの data-target 属性を開きたいモーダルのidと対応させる
+        </p>
+      </div>
+    </div>
+  </div>
 
   <!-- モーダル1 -->
   <div id="modal1" class="modal-outer" style="display: none;">

@@ -36,7 +36,6 @@ ModalObj.prototype.init = function(triggerCls){
 
 // 開く
 ModalObj.prototype.modalOpen = function(e) {
-  // console.log(this.targetModal);
   e.preventDefault();
   e.stopPropagation();
   $('body').append('<div id="modalOverlay"></div>');
@@ -44,26 +43,30 @@ ModalObj.prototype.modalOpen = function(e) {
   this.overlay.show().css({'z-index':'999'});
   this.targetModal.show().css({'z-index':'1000'});
 
+  // console.log(this.targetModal);
+
   return this;
 };
 
 // 閉じる
 ModalObj.prototype.modalClose = function(e){
-  // 閉じる動作は一応するのだが
-  // このメソッドだけconsole.log(this.targetModal)すると
-  // なぜか2～3回呼ばれて意味不明…_(:3」∠)＿
-  // ※正しい対象モーダルを呼んだ後1から順に呼び直してるっぽい
-  console.log(this.targetModal);
+  // 【謎1】モーダルが表示されていないときに、
+  // 画面のどこをクリックしてもこのメソッドが発火してしまう
+  // （リンクが遷移しないなどの弊害がある）
+  // 【謎2】オーバーレイ（背景）をクリックした時にメソッドが複数回発火している？
+  // ※console.logすると複数行表示される
+
   e.preventDefault();
   this.targetModal.hide().css({'z-index':''});
   this.overlay.remove();
+
+  console.log(this.targetModal);
 
   return this;
 };
 
 // 位置調整
 ModalObj.prototype.setPosition = function() {
-  // console.log(this.targetModal);
   var wH = $(window).height();
   var wW = $(window).width();
   var mH = this.targetModal.outerHeight();
@@ -97,15 +100,20 @@ ModalObj.prototype.setEvents = function() {
   var that = this;
 
   this.triggerCls.on('click', function(e){
+    // console.log('[open]');
     that.modalOpen(e);
     that.setPosition();
   });
 
   that.closeTrigger.on('click', function(e){
+    // 閉じるボタンクリック時
+    console.log('button');
     that.modalClose(e);
   });
 
   $(window).on('click', that.overlay, function(e){
+    // オーバーレイクリック時
+    console.log('overlay');
     that.modalClose(e);
   });
 
