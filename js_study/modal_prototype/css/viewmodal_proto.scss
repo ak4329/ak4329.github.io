@@ -38,7 +38,7 @@ body {
   }
 }
 
-#modalOverlay {
+#modal-overlay {
   background: rgb(128, 128, 128);
   background: rgba(0, 0, 0, 0.5);
   display: none;
@@ -47,6 +47,7 @@ body {
   top: 0;
   height: 100%;
   width: 100%;
+  z-index: 999;
 }
 
 .modal-outer {
@@ -55,4 +56,5 @@ body {
   width: 80%;
   padding: 20px 5%;
   position: absolute;
+  z-index: 1000;
 }

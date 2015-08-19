@@ -4,63 +4,47 @@
  */
 
 function ModalObj() {
-  // これがコンストラクタ？ クラス？
+  // コンストラクタ
   // 静的プロパティの初期値をここで設定しておく
-  this.overlay = {};
-  this.triggerCls = {};
-  this.openTrigger = {};
-  this.targetModal = {};
+  this.$wrapper = {};
+  this.$overlay = {};
+  this.$openTrigger = {};
+  this.$targetModal = {};
   this.closeTrigger = {};
 
   return this;
 }
 
-
 // method
 // initialize
-ModalObj.prototype.init = function(triggerCls){
-  this.overlay = $('#modalOverlay');
-  this.triggerCls = $(triggerCls);
-  this.openTrigger = this.triggerCls.attr('href');
-  this.targetModal = $(this.openTrigger);
-  this.closeTrigger = this.targetModal.find('.jsc-modal-close');
-
-  this.closeTrigger.off('click');
-  this.overlay.off('click');
+ModalObj.prototype.init = function(trigger, target){
+  this.$wrapper = $('#modal-wrapper');
+  this.$overlay = $('#modal-overlay');
+  this.$openTrigger = $(trigger);
+  this.$targetModal = $(target);
+  this.$closeTrigger = this.$targetModal.find('.jsc-modal-close');
 
   this.setEvents();
 
   return this;
 };
 
-
 // 開く
-ModalObj.prototype.modalOpen = function(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  $('body').append('<div id="modalOverlay"></div>');
-  this.overlay = $('#modalOverlay');
-  this.overlay.show().css({'z-index':'999'});
-  this.targetModal.show().css({'z-index':'1000'});
-
-  // console.log(this.targetModal);
+ModalObj.prototype.modalOpen = function() {
+  this.$overlay.show();
+  this.$wrapper.show();
+  this.$targetModal.show();
 
   return this;
 };
 
 // 閉じる
-ModalObj.prototype.modalClose = function(e){
-  // 【謎1】モーダルが表示されていないときに、
-  // 画面のどこをクリックしてもこのメソッドが発火してしまう
-  // （リンクが遷移しないなどの弊害がある）
-  // 【謎2】オーバーレイ（背景）をクリックした時にメソッドが複数回発火している？
-  // ※console.logすると複数行表示される
+ModalObj.prototype.modalClose = function(){
+  this.$targetModal.hide();
+  this.$wrapper.hide();
+  this.$overlay.hide();
 
-  e.preventDefault();
-  this.targetModal.hide().css({'z-index':''});
-  this.overlay.remove();
-
-  console.log(this.targetModal);
+  console.log(this.$targetModal);
 
   return this;
 };
@@ -69,27 +53,27 @@ ModalObj.prototype.modalClose = function(e){
 ModalObj.prototype.setPosition = function() {
   var wH = $(window).height();
   var wW = $(window).width();
-  var mH = this.targetModal.outerHeight();
-  var mW = this.targetModal.outerWidth();
+  var mH = this.$targetModal.outerHeight();
+  var mW = this.$targetModal.outerWidth();
   var x = (wW - mW) / 2;
   var y = (wH - mH) / 2;
 
-  this.targetModal.css({'left': x + 'px','top': y + 'px'});
+  this.$targetModal.css({'left': x + 'px','top': y + 'px'});
   // ウインドウがモーダルより小さかった時の処理
   if( mH > wH ){
-    this.targetModal.css({
+    this.$targetModal.css({
       'position' : 'absolute',
       'top' : '0'
     });
   }
   if( mW > wW ){
-    this.targetModal.css({
+    this.$targetModal.css({
       'position' : 'absolute',
       'left' : '0'
     });
   }
   if( mH < wH && mW < wW ){
-    this.targetModal.css({ 'position' : '' });
+    this.$targetModal.css({ 'position' : '' });
   }
 
   return this;
@@ -99,26 +83,30 @@ ModalObj.prototype.setPosition = function() {
 ModalObj.prototype.setEvents = function() {
   var that = this;
 
-  this.triggerCls.on('click', function(e){
-    // console.log('[open]');
+  that.$openTrigger.on('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
     that.modalOpen(e);
     that.setPosition();
   });
 
-  that.closeTrigger.on('click', function(e){
+  that.$closeTrigger.off('click').on('click', function(e){
     // 閉じるボタンクリック時
+    e.preventDefault();
+    e.stopPropagation();
     console.log('button');
     that.modalClose(e);
   });
 
-  $(window).on('click', that.overlay, function(e){
+  that.$wrapper.off('click').on('click', that.$overlay, function(e){
     // オーバーレイクリック時
+    e.stopPropagation();
     console.log('overlay');
     that.modalClose(e);
   });
 
   $(window).on('resize rotate', function(){
-    if(that.targetModal.is(':visible')) {
+    if(that.$targetModal.is(':visible')) {
       that.setPosition();
     }
   });
@@ -130,11 +118,10 @@ ModalObj.prototype.setEvents = function() {
  * 初期設定
  *
  * つかいかた：インスタンスを作ってinitする
- * 引数にはトリガーとなるリンクのclassを入れる
- * 対応するモーダルはアンカーで指定（例：#modal1）
+ * 引数にはトリガーとなるリンクのclassとターゲットのidを入れる
  */
 var modal1 = new ModalObj();
-modal1.init('.jsc-modal-trigger1');
+modal1.init('.jsc-modal-trigger1', '#jsi-modal1');
 
 var modal2 = new ModalObj();
-modal2.init('.jsc-modal-trigger2');
+modal2.init('.jsc-modal-trigger2', '#jsi-modal2');

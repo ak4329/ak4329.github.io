@@ -26,7 +26,7 @@ body {
 .script-info-inner + .script-info-inner {
   margin-top: 20px; }
 
-#modalOverlay {
+#modal-overlay {
   background: gray;
   background: rgba(0, 0, 0, 0.5);
   display: none;
@@ -34,13 +34,15 @@ body {
   left: 0;
   top: 0;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  z-index: 999; }
 
 .modal-outer {
   background: #fff;
   border: 1px solid #333;
   width: 80%;
   padding: 20px 5%;
-  position: absolute; }
+  position: absolute;
+  z-index: 1000; }
 
 /*# sourceMappingURL=viewmodal_proto.css.map */

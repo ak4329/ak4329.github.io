@@ -26,45 +26,50 @@
         <h2>説明</h2>
         <p>
           var modal1 = new ModalObj(); のような形でインスタンスを作って<br>
-          modal1.init('.triggerCls'); のようにする<br>
-          ※引数にはトリガーとなるリンクのclassを入れる（例：.jsc-modal-trigger1）<br>
-          ※対応するモーダルはアンカーで指定（例：#modal1）
+          modal1.init('.trigger', '#jsi-modal1'); のようにする<br>
+          ※引数にはトリガーとなるリンクのclassとターゲットのモーダルidを入れる
         </p>
       </div>
       <div class="script-info-inner">
-        <h2>既知の問題点</h2>
+        <h2>既知の問題点（解決したかも！）</h2>
         <ul>
           <li>
-            【謎1】モーダルが表示されていないときに、画面のどこをクリックしてもこのメソッドが発火してしまう<br>
-            （リンクが遷移しないなどの弊害がある）</li>
+            <s>【謎1】モーダルが表示されていないときに、画面のどこをクリックしてもこのメソッドが発火してしまう<br>
+              （リンクが遷移しないなどの弊害がある）</s>
+          </li>
           <li>
-            【謎2】オーバーレイ（背景）をクリックした時にメソッドが複数回発火している？<br>
-            ※console.logすると複数行表示される
+            <s>【謎2】オーバーレイ（背景）をクリックした時にメソッドが複数回発火している？<br>
+              ※console.logすると複数行表示される</s>
           </li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- モーダル1 -->
-  <div id="modal1" class="modal-outer" style="display: none;">
-    <div class="modal-content">
-      <h2 class="modal-confirm-title">モーダル１</h2>
-      <p>モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。</p>
-      <ul class="modal-btn-area">
-        <li><a href="javascript:void(0);" class="btn-modal-close jsc-modal-close">閉じる</a></li>
-      </ul>
+  <div id="modal-wrapper" style="display: none;">
+    <!-- m1 -->
+    <div id="jsi-modal1" class="modal-outer" style="display: none;">
+      <div class="modal-content">
+        <h2 class="modal-confirm-title">モーダル１</h2>
+        <p>モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。</p>
+        <ul class="modal-btn-area">
+          <li><a href="javascript:void(0);" class="btn-modal-close jsc-modal-close">閉じる</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <!-- モーダル2 -->
-  <div id="modal2" class="modal-outer" style="display: none;">
-    <div class="modal-content">
-      <h2 class="modal-confirm-title">モーダル２</h2>
-      <p>モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。</p>
-      <ul class="modal-btn-area">
-        <li><a href="javascript:void(0);" class="btn-modal-close jsc-modal-close">close!!!</a></li>
-      </ul>
+
+    <!-- m2 -->
+    <div id="jsi-modal2" class="modal-outer" style="display: none;">
+      <div class="modal-content">
+        <h2 class="modal-confirm-title">モーダル２</h2>
+        <p>モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。モーダルコンテンツ。</p>
+        <ul class="modal-btn-area">
+          <li><a href="javascript:void(0);" class="btn-modal-close jsc-modal-close">close!!!</a></li>
+        </ul>
+      </div>
     </div>
+
+    <div id="modal-overlay"></div>
   </div>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
