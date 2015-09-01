@@ -44,8 +44,6 @@ ModalObj.prototype.modalClose = function(){
   this.$wrapper.hide();
   this.$overlay.hide();
 
-  console.log(this.$targetModal);
-
   return this;
 };
 
@@ -93,15 +91,12 @@ ModalObj.prototype.setEvents = function() {
   that.$closeTrigger.off('click').on('click', function(e){
     // 閉じるボタンクリック時
     e.preventDefault();
-    e.stopPropagation();
-    console.log('button');
     that.modalClose(e);
   });
 
   that.$wrapper.off('click').on('click', that.$overlay, function(e){
     // オーバーレイクリック時
     e.stopPropagation();
-    console.log('overlay');
     that.modalClose(e);
   });
 
