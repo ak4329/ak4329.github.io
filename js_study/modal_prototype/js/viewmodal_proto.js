@@ -10,7 +10,7 @@ function ModalObj() {
   this.$overlay = {};
   this.$openTrigger = {};
   this.$targetModal = {};
-  this.closeTrigger = {};
+  this.$closeTrigger = {};
 
   return this;
 }
@@ -103,6 +103,11 @@ ModalObj.prototype.setEvents = function() {
     e.stopPropagation();
     console.log('overlay');
     that.modalClose(e);
+  });
+
+  that.$targetModal.off('click').on('click', function(e){
+    // モーダルクリック時
+    e.stopPropagation();
   });
 
   $(window).on('resize rotate', function(){
