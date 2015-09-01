@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1">
+  <title>【ilStudy】JS勉強会　～ jQueryを使ったサイトを作ろう ～</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="ly-header" id="pageTop">
+    <div class="ly-headerInner">
+      <h1>ヘッダーです。</h1>
+    </div>
+  </header>
+  <div class="ly-mainImg">
+    メイン画像
+  </div>
+  <main class="ly-main clearfix">
+    <div class="ly-mainContents">
+      <h2>メインコンテンツ</h2>
+      <div id="jsi-tabs" class="tab-wrapper">
+        <ul class="tab-nav">
+          <li><a href="#tab1">tab1</a></li>
+          <li><a href="#tab2">tab2</a></li>
+          <li><a href="#tab3">tab3</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="tab1" class="tab-content-inner">
+            <h3>タブの中身１</h3>
+            <p>つれづれなるまゝに、日暮らし、硯にむかひて、心にうつりゆくよしなし事を、そこはかとなく書きつくれば、あやしうこそものぐるほしけれ。（Wikipediaより）</p>
+          </div>
+          <div id="tab2" class="tab-content-inner" style="display:none;">
+            <h3>タブの中身２</h3>
+            <p>親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）</p>
+          </div>
+          <div id="tab3" class="tab-content-inner" style="display:none;">
+            <h3>タブの中身３</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ly-mainSideContents">
+      <h2>サイドコンテンツ</h2>
+      <div class="accordion-outer">
+        <h3 class="accordion-header jsc-accordion">アコーディオン<span class="plus">+</span></h3>
+        <div class="accordion-inner" style="display:none;">
+          <p>親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）</p>
+        </div>
+        <h3 class="accordion-header jsc-accordion">アコーディオン２<span class="plus">+</span></h3>
+        <ul class="accordion-inner" style="display:none;">
+          <li><a href="#">コンテンツ１</a></li>
+          <li><a href="#">コンテンツ２</a></li>
+          <li><a href="#">コンテンツ３</a></li>
+          <li><a href="#">コンテンツ４</a></li>
+          <li><a href="#">コンテンツ５</a></li>
+        </ul>
+        <h3 class="accordion-header jsc-accordion">アコーディオン３<span class="plus">+</span></h3>
+        <ul class="accordion-inner" style="display:none;">
+          <li><a href="#">コンテンツ１</a></li>
+          <li><a href="#">コンテンツ２</a></li>
+          <li><a href="#">コンテンツ３</a></li>
+          <li><a href="#">コンテンツ４</a></li>
+          <li><a href="#">コンテンツ５</a></li>
+        </ul>
+      </div>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="ly-footer">
+    <div class="ly-footerInner">
+      フッター is here.
+    </div>
+  </footer>
+
+  <p id="jsi-btn-goTop" class="btn-goTop" style="display: none;"><a href="#pageTop" class="jsc-scrollTop">☝('ω'☝ )三☝('ω')☝三( ☝'ω')☝ トップへ戻る</a></p>
+  <script src="js/lib/jquery-1.11.1.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
