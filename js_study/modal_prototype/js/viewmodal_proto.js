@@ -9,6 +9,7 @@ function ModalObj() {
   this.$wrapper = {};
   this.$overlay = {};
   this.$openTrigger = {};
+  this.$modals = {};
   this.$targetModal = {};
   this.$closeTrigger = {};
 
@@ -21,6 +22,7 @@ ModalObj.prototype.init = function(trigger, target){
   this.$wrapper = $('#modal-wrapper');
   this.$overlay = $('#modal-overlay');
   this.$openTrigger = $(trigger);
+  this.$modals = this.$wrapper.find('.modal-outer');
   this.$targetModal = $(target);
   this.$closeTrigger = this.$targetModal.find('.jsc-modal-close');
 
@@ -31,6 +33,7 @@ ModalObj.prototype.init = function(trigger, target){
 
 // 開く
 ModalObj.prototype.modalOpen = function() {
+  this.$modals.hide();
   this.$overlay.show();
   this.$wrapper.show();
   this.$targetModal.show();
@@ -40,9 +43,12 @@ ModalObj.prototype.modalOpen = function() {
 
 // 閉じる
 ModalObj.prototype.modalClose = function(){
-  this.$targetModal.hide();
+  this.$modals.hide();
+  // this.$targetModal.hide();
   this.$wrapper.hide();
   this.$overlay.hide();
+
+  // console.log(this.$targetModal);
 
   return this;
 };
