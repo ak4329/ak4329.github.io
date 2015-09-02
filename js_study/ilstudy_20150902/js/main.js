@@ -10,7 +10,7 @@
   };
 
 /**
- *  ページ上部へ
+ *  スムーススクロール (2015/02)
  *    must要件　クリックしたらページの上部へ遷移
  *    want要件　スクロールしたら出す
  */
@@ -43,7 +43,7 @@
 
 
 /**
- *  アコーディオンの機能
+ *  アコーディオン (2015/02, 2015/09)
  *    must要件　クリックしたら表示される。もう一度クリックしたら消える
  *    want要件　開くスピードを調整してみる。
  */
@@ -71,7 +71,7 @@
 
 
 /**
- *  タブ切り替えの機能
+ *  タブ切り替え (2015/09)
  *    must要件　タブ①を押すとコンテンツ①が表示され、タブ②を押すとコンテンツ②が表示される
  *    want要件　切り替え時のアニメーションをつけてみる。
  */
@@ -123,9 +123,9 @@
         var hash = $(this).context.hash;
         that.toggleContent(hash);
 
-        // activeclass一旦外し
+        // activeClass一旦外し
         that.$tab.removeClass(that.activeCls);
-        // acthiveclassつける
+        // acthiveClassつける
         $(this).addClass(that.activeCls);
 
       });

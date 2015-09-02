@@ -98,12 +98,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .accordion-header > span {
+  display: block;
   font-family: Helvetica, Arial, Sans-serif;
   font-size: 30px;
   font-weight: bold;
   position: absolute;
-  top: 0;
-  right: 10px;
+  top: 50%;
+  margin-top: -8px;
+  right: 2%;
+  height: 16px;
+  line-height: 17px;
+  width: 17px;
+  text-align: center;
 }
 
 .accordion-inner {
@@ -154,8 +160,6 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   bottom: 5px;
   right: 2%;
-  /*  margin-left: -160px;
-  */
   width: 320px;
 }
 
