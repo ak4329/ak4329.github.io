@@ -3,7 +3,7 @@
  * 2015/08
  */
 
-var Modal = (function (){
+var Modal = (function () {
   var constructor = function() {
     // コンストラクタ
     // 静的プロパティの初期値をここで設定しておく
@@ -15,12 +15,13 @@ var Modal = (function (){
     this.$closeTrigger = {};
 
     return this;
-  }
+  };
 
   // method
-  // initialize
   var proto = constructor.prototype;
-  proto.init = function(trigger, target){
+
+  // initialize
+  proto.init = function(trigger, target) {
     // setEl に出してもよい
     this.$wrapper = $('#modal-wrapper');
     this.$overlay = $('#modal-overlay');
@@ -45,13 +46,10 @@ var Modal = (function (){
   };
 
   // 閉じる
-  proto.close = function(){
+  proto.close = function() {
     this.$modals.hide();
-    // this.$targetModal.hide();
     this.$wrapper.hide();
     this.$overlay.hide();
-
-    // console.log(this.$targetModal);
 
     return this;
   };
@@ -67,19 +65,19 @@ var Modal = (function (){
 
     this.$targetModal.css({'left': x + 'px','top': y + 'px'});
     // ウインドウがモーダルより小さかった時の処理
-    if( mH > wH ){
+    if( mH > wH ) {
       this.$targetModal.css({
         'position' : 'absolute',
         'top' : '0'
       });
     }
-    if( mW > wW ){
+    if( mW > wW ) {
       this.$targetModal.css({
         'position' : 'absolute',
         'left' : '0'
       });
     }
-    if( mH < wH && mW < wW ){
+    if( mH < wH && mW < wW ) {
       this.$targetModal.css({ 'position' : '' });
     }
 
@@ -90,31 +88,31 @@ var Modal = (function (){
   proto.setEvents = function() {
     var that = this;
 
-    that.$openTrigger.on('click', function(e){
+    that.$openTrigger.on('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       that.open(e);
       that.setPosition();
     });
 
-    that.$closeTrigger.off('click').on('click', function(e){
+    that.$closeTrigger.off('click').on('click', function(e) {
       // 閉じるボタンクリック時
       e.preventDefault();
       that.close(e);
     });
 
-    that.$wrapper.off('click').on('click', that.$overlay, function(e){
+    that.$wrapper.off('click').on('click', that.$overlay, function(e) {
       // オーバーレイクリック時
       e.stopPropagation();
       that.close(e);
     });
 
-    that.$targetModal.off('click').on('click', function(e){
+    that.$targetModal.off('click').on('click', function(e) {
       // モーダルクリック時
       e.stopPropagation();
     });
 
-    $(window).on('resize rotate', function(){
+    $(window).on('resize rotate', function() {
       if(that.$targetModal.is(':visible')) {
         that.setPosition();
       }
